@@ -448,8 +448,8 @@ export default function App() {
             {[
               { name: "Evelyn", role: "Chemistry Lead", icon: FlaskConical, color: "bg-blue-100 text-blue-600" },
               { name: "Rex", role: "Physics Lead", icon: Atom, color: "bg-purple-100 text-purple-600" },
-              { name: "Giovanna", role: "Biology Lead", icon: Leaf, color: "bg-green-100 text-green-600" },
-              { name: "Toru", role: "ICT Lead", icon: MonitorPlay, color: "bg-amber-100 text-amber-600" }
+              { name: "Giovanna", role: "Design Lead", icon: ImageIcon, color: "bg-green-100 text-green-600" },
+              { name: "Toru", role: "ICT & Biology Lead", icon: MonitorPlay, color: "bg-amber-100 text-amber-600" }
             ].map((member, idx) => (
               <FadeIn key={member.name} delay={idx * 0.1}>
                 <div className="group relative overflow-hidden rounded-3xl bg-cream p-8 text-center hover:shadow-xl transition-all border border-sage/10">
