@@ -400,9 +400,18 @@ export default function App() {
               ))}
             </div>
 
-            {/* Materials Grid */}
+            {/* Materials Grid & Video Link */}
             <FadeIn delay={0.3}>
-              <div className="bg-white p-8 rounded-3xl shadow-lg border border-cream-dark">
+              <div className="bg-white p-8 rounded-3xl shadow-lg border border-cream-dark mb-8">
+                <div className="bg-amber/10 border border-amber/20 rounded-2xl p-6 mb-8 text-center">
+                  <Video className="w-8 h-8 text-amber mx-auto mb-3" />
+                  <h4 className="font-serif font-bold text-lg mb-2">Watch Our Process</h4>
+                  <p className="text-sm text-charcoal-light mb-4">See the step-by-step video of our group making the eco-friendly soy wax candle.</p>
+                  <a href="https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-amber hover:text-amber-light transition-colors">
+                    Open Video <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
                 <h4 className="text-2xl font-serif font-bold text-center mb-8">Required Materials</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -437,9 +446,9 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Evelyn", role: "Biology Lead", icon: Leaf, color: "bg-green-100 text-green-600" },
-              { name: "Rex", role: "Chemistry Lead", icon: FlaskConical, color: "bg-blue-100 text-blue-600" },
-              { name: "Giovanna", role: "Physics Lead", icon: Atom, color: "bg-purple-100 text-purple-600" },
+              { name: "Evelyn", role: "Chemistry Lead", icon: FlaskConical, color: "bg-blue-100 text-blue-600" },
+              { name: "Rex", role: "Physics Lead", icon: Atom, color: "bg-purple-100 text-purple-600" },
+              { name: "Giovanna", role: "Biology Lead", icon: Leaf, color: "bg-green-100 text-green-600" },
               { name: "Toru", role: "ICT Lead", icon: MonitorPlay, color: "bg-amber-100 text-amber-600" }
             ].map((member, idx) => (
               <FadeIn key={member.name} delay={idx * 0.1}>
@@ -469,16 +478,25 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration." },
-              { title: "Canva Flyer", icon: FileText, desc: "Promotional material highlighting eco-benefits." },
-              { title: "Project Video", icon: Video, desc: "Documentary of our making process and science." }
+              { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration.", link: null },
+              { title: "Canva Flyer", icon: FileText, desc: "Promotional material highlighting eco-benefits.", link: null },
+              { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
-                <div className="bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors">
-                  <item.icon className="w-12 h-12 text-amber mb-6" />
-                  <h4 className="text-xl font-bold mb-3">{item.title}</h4>
-                  <p className="text-cream/80">{item.desc}</p>
-                </div>
+                {item.link ? (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="block bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors h-full">
+                    <item.icon className="w-12 h-12 text-amber mb-6" />
+                    <h4 className="text-xl font-bold mb-3">{item.title}</h4>
+                    <p className="text-cream/80 mb-4">{item.desc}</p>
+                    <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">Watch Video <ArrowRight className="w-4 h-4" /></span>
+                  </a>
+                ) : (
+                  <div className="bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors h-full">
+                    <item.icon className="w-12 h-12 text-amber mb-6" />
+                    <h4 className="text-xl font-bold mb-3">{item.title}</h4>
+                    <p className="text-cream/80">{item.desc}</p>
+                  </div>
+                )}
               </FadeIn>
             ))}
           </div>
