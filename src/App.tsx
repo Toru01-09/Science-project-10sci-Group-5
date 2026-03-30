@@ -525,7 +525,7 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration.", link: null },
-              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "#" },
+              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "https://drive.google.com/drive/folders/1HQ5oq0tJj9Rx7p-U3o6SKdKreA4ZCAVV" },
               { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
