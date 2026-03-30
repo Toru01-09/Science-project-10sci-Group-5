@@ -253,24 +253,70 @@ export default function App() {
                   transition={{ duration: 0.3 }}
                   className="grid md:grid-cols-2 gap-12"
                 >
-                  <div>
-                    <h4 className="text-2xl font-serif font-bold text-amber mb-4 flex items-center gap-3">
-                      <Flame className="w-6 h-6" /> Combustion Reaction
-                    </h4>
-                    <p className="text-cream-dark mb-6 leading-relaxed">
-                      Candle burning is a chemical reaction called combustion. The heat of the match melts the wax, which is drawn up the wick. The heat vaporizes the liquid wax, and these hot gases react with oxygen in the air.
-                    </p>
-                    <div className="bg-charcoal/50 p-4 rounded-xl font-mono text-sm text-sage-light border border-charcoal-light">
-                      Wax (C<sub>x</sub>H<sub>y</sub>) + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O + Heat + Light
+                  <div className="space-y-8">
+                    <div>
+                      <h4 className="text-2xl font-serif font-bold text-amber mb-4 flex items-center gap-3">
+                        <FlaskConical className="w-6 h-6" /> Introduction to Wax
+                      </h4>
+                      <p className="text-cream-dark leading-relaxed text-sm">
+                        Candle wax is mainly made of <strong>hydrocarbons</strong>, which are compounds containing only Carbon (C) and Hydrogen (H). An example of wax is paraffin wax. It consists mostly of long-chain alkanes (typically C<sub>20</sub>-C<sub>40</sub>).
+                        <br/><br/>
+                        The general formula of alkanes is <strong>C<sub>n</sub>H<sub>2n+2</sub></strong>. The alkanes make the wax solid at room temperature, have a high melting point, and are combustible (burn easily).
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-2xl font-serif font-bold text-amber mb-4 flex items-center gap-3">
+                        <Beaker className="w-6 h-6" /> Saturated vs Unsaturated
+                      </h4>
+                      <div className="bg-charcoal/50 rounded-xl p-4 border border-charcoal-light text-sm">
+                        <div className="grid grid-cols-2 gap-4 mb-2 border-b border-charcoal-light pb-2 font-bold text-amber-light">
+                          <div>Saturated (Alkanes)</div>
+                          <div>Unsaturated (Alkenes)</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 text-cream-dark">
+                          <ul className="space-y-2">
+                            <li>• Single bond (C-C)</li>
+                            <li>• Less reactive</li>
+                            <li>• No reaction with bromine water</li>
+                            <li>• e.g., Methane (CH<sub>4</sub>)</li>
+                          </ul>
+                          <ul className="space-y-2">
+                            <li>• Double bond (C=C)</li>
+                            <li>• More reactive</li>
+                            <li>• Decolourises bromine water</li>
+                            <li>• e.g., Ethene (C<sub>2</sub>H<sub>4</sub>)</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                   <div>
                     <h4 className="text-2xl font-serif font-bold text-amber mb-4 flex items-center gap-3">
-                      <Beaker className="w-6 h-6" /> Alkanes & Alkenes
+                      <Flame className="w-6 h-6" /> Combustion of Hydrocarbons
                     </h4>
-                    <p className="text-cream-dark leading-relaxed">
-                      Soy wax is composed primarily of triglycerides, which contain long hydrocarbon chains. Unlike paraffin (which is mostly alkanes), soy wax contains unsaturated fatty acids with double bonds (alkenes). This structural difference contributes to its lower melting point and cleaner burning properties.
+                    <p className="text-cream-dark leading-relaxed text-sm mb-4">
+                      When hydrocarbons burn in oxygen, they undergo combustion reactions.
                     </p>
+                    
+                    <div className="space-y-4">
+                      <div className="bg-charcoal/50 p-4 rounded-xl border border-charcoal-light">
+                        <h5 className="font-bold text-sage-light mb-2">Complete Combustion (Enough Oxygen)</h5>
+                        <p className="text-sm text-cream-dark mb-2">Produces carbon dioxide (CO<sub>2</sub>), water vapour, and energy.</p>
+                        <code className="text-xs text-amber block bg-charcoal p-2 rounded">
+                          Hydrocarbon + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O(g) + energy
+                        </code>
+                      </div>
+                      
+                      <div className="bg-charcoal/50 p-4 rounded-xl border border-charcoal-light">
+                        <h5 className="font-bold text-amber-light mb-2">Incomplete Combustion (Limited Oxygen)</h5>
+                        <p className="text-sm text-cream-dark mb-2">Produces soot (C), carbon monoxide (CO), and water.</p>
+                        <code className="text-xs text-amber block bg-charcoal p-2 rounded">
+                          Hydrocarbon + O<sub>2</sub> → CO + H<sub>2</sub>O + C
+                        </code>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -479,7 +525,7 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration.", link: null },
-              { title: "Canva Flyer", icon: FileText, desc: "Promotional material highlighting eco-benefits.", link: null },
+              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: null },
               { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
