@@ -525,16 +525,18 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration.", link: null },
-              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: null },
+              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "#" },
               { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
                 {item.link ? (
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="block bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors h-full">
+                  <a href={item.link} target={item.link === "#" ? "_self" : "_blank"} rel="noopener noreferrer" className="block bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors h-full" onClick={(e) => { if (item.link === "#") { e.preventDefault(); alert("Please replace this placeholder with your actual Canva or Google Drive link in the code!"); } }}>
                     <item.icon className="w-12 h-12 text-amber mb-6" />
                     <h4 className="text-xl font-bold mb-3">{item.title}</h4>
                     <p className="text-cream/80 mb-4">{item.desc}</p>
-                    <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">Watch Video <ArrowRight className="w-4 h-4" /></span>
+                    <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">
+                      {item.title === "Project Video" ? "Watch Video" : "View Flyer"} <ArrowRight className="w-4 h-4" />
+                    </span>
                   </a>
                 ) : (
                   <div className="bg-sage-dark/50 backdrop-blur-sm border border-white/20 p-8 rounded-3xl hover:bg-sage-dark transition-colors h-full">
