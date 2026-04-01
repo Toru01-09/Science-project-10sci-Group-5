@@ -7,7 +7,6 @@ import {
   Beaker, ThermometerSun, Zap, Globe, ArrowRight,
   Menu, X
 } from 'lucide-react';
-import candlesImg from './candles.jpeg';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: ReactNode, delay?: number, className?: string, key?: string | number }) => (
   <motion.div
@@ -536,7 +535,7 @@ export default function App() {
             {[
               { title: "Canva Posters", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "https://drive.google.com/drive/folders/1HQ5oq0tJj9Rx7p-U3o6SKdKreA4ZCAVV" },
               { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" },
-              { title: "Final Product", icon: ImageIcon, desc: "Our eco-friendly soy wax candles with custom digital labels.", link: candlesImg }
+              { title: "Final Product", icon: ImageIcon, desc: "Our eco-friendly soy wax candles with custom digital labels.", link: "https://drive.google.com/drive/folders/1FIiTWV2V-1AfOqDPSXpG3WYAK0iqut3R?usp=sharing" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
                 {item.link ? (
@@ -545,7 +544,7 @@ export default function App() {
                     <h4 className="text-xl font-bold mb-3">{item.title}</h4>
                     <p className="text-cream/80 mb-4">{item.desc}</p>
                     <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">
-                      {item.title === "Project Video" ? "Watch Video" : item.title === "Canva Posters" ? "View Posters" : "View Image"} <ArrowRight className="w-4 h-4" />
+                      {item.title === "Project Video" ? "Watch Video" : item.title === "Canva Posters" ? "View Posters" : "View Images"} <ArrowRight className="w-4 h-4" />
                     </span>
                   </a>
                 ) : (
