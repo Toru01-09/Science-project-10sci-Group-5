@@ -28,7 +28,12 @@ export default function App() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const y = el.getBoundingClientRect().top + window.scrollY - 64;
+      try {
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } catch (e) {
+        window.scrollTo(0, y);
+      }
       setIsMobileMenuOpen(false);
     }
   };
@@ -50,7 +55,7 @@ export default function App() {
                 <button 
                   key={item}
                   onClick={() => scrollTo(item.toLowerCase())}
-                  className="text-charcoal-light hover:text-sage-dark transition-colors font-medium text-sm uppercase tracking-wider"
+                  className="text-charcoal-light hover:text-sage-dark transition-colors font-medium text-sm uppercase tracking-wider cursor-pointer touch-manipulation"
                 >
                   {item}
                 </button>
@@ -59,7 +64,11 @@ export default function App() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-charcoal p-2">
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+                className="text-charcoal p-2 cursor-pointer touch-manipulation"
+                aria-label="Toggle menu"
+              >
                 {isMobileMenuOpen ? <X /> : <Menu />}
               </button>
             </div>
@@ -80,7 +89,7 @@ export default function App() {
                   <button 
                     key={item}
                     onClick={() => scrollTo(item.toLowerCase())}
-                    className="block w-full text-left px-3 py-2 text-charcoal hover:bg-sage/10 rounded-md font-medium"
+                    className="block w-full text-left px-3 py-3 text-charcoal hover:bg-sage/10 rounded-md font-medium cursor-pointer touch-manipulation"
                   >
                     {item}
                   </button>
@@ -132,10 +141,10 @@ export default function App() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <button onClick={() => scrollTo('science')} className="px-8 py-4 bg-sage text-white rounded-full font-medium hover:bg-sage-dark transition-colors shadow-lg shadow-sage/30 flex items-center justify-center gap-2">
+            <button onClick={() => scrollTo('science')} className="px-8 py-4 bg-sage text-white rounded-full font-medium hover:bg-sage-dark transition-colors shadow-lg shadow-sage/30 flex items-center justify-center gap-2 cursor-pointer touch-manipulation">
               Explore the Science <ArrowRight className="w-4 h-4" />
             </button>
-            <button onClick={() => scrollTo('process')} className="px-8 py-4 bg-white text-charcoal border border-sage/30 rounded-full font-medium hover:bg-cream-dark transition-colors flex items-center justify-center gap-2">
+            <button onClick={() => scrollTo('process')} className="px-8 py-4 bg-white text-charcoal border border-sage/30 rounded-full font-medium hover:bg-cream-dark transition-colors flex items-center justify-center gap-2 cursor-pointer touch-manipulation">
               See the Process
             </button>
           </motion.div>
@@ -144,6 +153,32 @@ export default function App() {
         {/* Decorative background elements */}
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-sage/10 rounded-full blur-3xl -z-10"></div>
         <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-amber/10 rounded-full blur-3xl -z-10"></div>
+      </section>
+
+      {/* PRODUCT SHOWCASE SECTION */}
+      <section className="py-20 bg-cream-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="text-sm font-bold tracking-widest text-sage uppercase mb-2">Our Final Products</h2>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-charcoal">Eco-Friendly Soy Candles</h3>
+              <p className="mt-4 text-charcoal-light max-w-2xl mx-auto">
+                Featuring our custom digital labels for Lavender, Sweet Vanilla, and Geranium scents.
+              </p>
+            </div>
+          </FadeIn>
+          
+          <FadeIn delay={0.2}>
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mx-auto max-w-5xl">
+              <img 
+                src="https://storage.googleapis.com/mks-client-files/1743519124_image.jpg" 
+                alt="Our eco-friendly soy wax candles with custom digital labels: Lavender, Sweet Vanilla, and Geranium" 
+                className="w-full h-auto object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* ABOUT SECTION */}
@@ -230,7 +265,7 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all cursor-pointer touch-manipulation ${
                   activeTab === tab.id 
                     ? 'bg-amber text-charcoal shadow-lg shadow-amber/20' 
                     : 'bg-charcoal-light/30 text-cream hover:bg-charcoal-light/50'
@@ -522,10 +557,9 @@ export default function App() {
             </div>
           </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { title: "Digital Label", icon: ImageIcon, desc: "Product label designed with QR code integration.", link: null },
-              { title: "Canva Flyer", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "https://drive.google.com/drive/folders/1HQ5oq0tJj9Rx7p-U3o6SKdKreA4ZCAVV" },
+              { title: "Canva Posters", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "https://drive.google.com/drive/folders/1HQ5oq0tJj9Rx7p-U3o6SKdKreA4ZCAVV" },
               { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
@@ -535,7 +569,7 @@ export default function App() {
                     <h4 className="text-xl font-bold mb-3">{item.title}</h4>
                     <p className="text-cream/80 mb-4">{item.desc}</p>
                     <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">
-                      {item.title === "Project Video" ? "Watch Video" : "View Flyer"} <ArrowRight className="w-4 h-4" />
+                      {item.title === "Project Video" ? "Watch Video" : "View Posters"} <ArrowRight className="w-4 h-4" />
                     </span>
                   </a>
                 ) : (
@@ -587,7 +621,7 @@ export default function App() {
               <div key={rubric.id} className="bg-white border border-sage/20 rounded-2xl overflow-hidden shadow-sm">
                 <button 
                   onClick={() => setOpenRubric(openRubric === rubric.id ? null : rubric.id)}
-                  className="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-cream/50 transition-colors"
+                  className="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-cream/50 transition-colors cursor-pointer touch-manipulation"
                 >
                   <span className="font-serif font-bold text-lg text-charcoal">{rubric.title}</span>
                   <ChevronDown className={`w-5 h-5 text-sage transition-transform duration-300 ${openRubric === rubric.id ? 'rotate-180' : ''}`} />
