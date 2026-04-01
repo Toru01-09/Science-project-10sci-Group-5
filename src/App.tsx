@@ -7,6 +7,7 @@ import {
   Beaker, ThermometerSun, Zap, Globe, ArrowRight,
   Menu, X
 } from 'lucide-react';
+import candlesImg from './candles.jpeg';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: ReactNode, delay?: number, className?: string, key?: string | number }) => (
   <motion.div
@@ -171,7 +172,7 @@ export default function App() {
           <FadeIn delay={0.2}>
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mx-auto max-w-5xl">
               <img 
-                src="/candles.jpeg" 
+                src={candlesImg} 
                 alt="Our eco-friendly soy wax candles with custom digital labels: Lavender, Sweet Vanilla, and Geranium" 
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"
