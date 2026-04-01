@@ -51,7 +51,7 @@ export default function App() {
             
             {/* Desktop Nav */}
             <div className="hidden md:flex space-x-8">
-              {['About', 'Science', 'Process', 'Team', 'Rubric'].map((item) => (
+              {['About', 'Science', 'Sustainability', 'Process', 'Team', 'Rubric'].map((item) => (
                 <button 
                   key={item}
                   onClick={() => scrollTo(item.toLowerCase())}
@@ -85,7 +85,7 @@ export default function App() {
               className="md:hidden bg-cream border-b border-sage/20 overflow-hidden"
             >
               <div className="px-4 pt-2 pb-4 space-y-1">
-                {['About', 'Science', 'Process', 'Team', 'Rubric'].map((item) => (
+                {['About', 'Science', 'Sustainability', 'Process', 'Team', 'Rubric'].map((item) => (
                   <button 
                     key={item}
                     onClick={() => scrollTo(item.toLowerCase())}
@@ -483,6 +483,94 @@ export default function App() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* SUSTAINABILITY SECTION */}
+      <section id="sustainability" className="py-20 bg-cream-dark">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-sm font-bold tracking-widest text-sage uppercase mb-2">Environmental Impact</h2>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-charcoal">Sustainability</h3>
+            </div>
+          </FadeIn>
+
+          <div className="space-y-12">
+            {/* 1) Introduction */}
+            <FadeIn delay={0.1}>
+              <div className="bg-white p-8 rounded-3xl shadow-lg border border-sage/10">
+                <h4 className="text-xl font-bold text-sage mb-4 flex items-center gap-2">
+                  <Leaf className="w-6 h-6" /> 1. Introduction
+                </h4>
+                <p className="text-lg text-charcoal-light leading-relaxed">
+                  Soy wax is derived from soybeans, while paraffin wax is obtained from petroleum. To support this, we conducted an experiment to demonstrate that soy wax is more sustainable than paraffin wax.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* 2) Video */}
+            <FadeIn delay={0.2}>
+              <div className="bg-white p-8 rounded-3xl shadow-lg border border-sage/10">
+                <h4 className="text-xl font-bold text-sage mb-6 flex items-center gap-2">
+                  <Video className="w-6 h-6" /> 2. Experiment Video
+                </h4>
+                <a 
+                  href="https://drive.google.com/drive/folders/1fzMDotkuyBU1hIefvCUymbu_A2sD3HWQ" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-6 bg-sage/5 rounded-2xl border border-sage/10 hover:bg-sage/10 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-sage text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <MonitorPlay className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-charcoal">Watch our experiment here!</h4>
+                    <p className="text-sm text-charcoal-light">Video documentation of our sustainability test.</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-sage ml-auto" />
+                </a>
+              </div>
+            </FadeIn>
+
+            {/* 3) Data */}
+            <FadeIn delay={0.3}>
+              <div className="bg-white p-8 rounded-3xl shadow-lg border border-sage/10">
+                <h4 className="text-xl font-bold text-sage mb-6 flex items-center gap-2">
+                  <FileText className="w-6 h-6" /> 3. Data & Bar Graph
+                </h4>
+                <a 
+                  href="https://drive.google.com/drive/folders/1_yYEwpKyx8CI8p4mfyaSQ5sE_Zs2Hnhq" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-6 bg-amber/5 rounded-2xl border border-amber/10 hover:bg-amber/10 transition-colors group"
+                >
+                  <div className="w-12 h-12 bg-amber text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-charcoal">Experimental Results</h4>
+                    <p className="text-sm text-charcoal-light">This is the data analysis and bar graph on the experiments</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-amber ml-auto" />
+                </a>
+              </div>
+            </FadeIn>
+
+            {/* 4) Conclusion */}
+            <FadeIn delay={0.4}>
+              <div className="bg-sage text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                <h4 className="text-2xl font-serif font-bold mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-amber" />
+                  4. CONCLUSION
+                </h4>
+                <p className="text-cream/90 leading-relaxed text-lg italic">
+                  "Based on our experiment, the graph shows that soy candles produce less soot than paraffin candles. The wick of the paraffin candle shows a darker colour compared to the soy wax wick. Since soot contributes to air pollution and environmental damage, lower soot production means soy candles are more sustainable."
+                </p>
               </div>
             </FadeIn>
           </div>
