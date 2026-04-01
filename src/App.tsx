@@ -156,32 +156,6 @@ export default function App() {
         <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-amber/10 rounded-full blur-3xl -z-10"></div>
       </section>
 
-      {/* PRODUCT SHOWCASE SECTION */}
-      <section className="py-20 bg-cream-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <h2 className="text-sm font-bold tracking-widest text-sage uppercase mb-2">Our Final Products</h2>
-              <h3 className="text-3xl md:text-4xl font-serif font-bold text-charcoal">Eco-Friendly Soy Candles</h3>
-              <p className="mt-4 text-charcoal-light max-w-2xl mx-auto">
-                Featuring our custom digital labels for Lavender, Sweet Vanilla, and Geranium scents.
-              </p>
-            </div>
-          </FadeIn>
-          
-          <FadeIn delay={0.2}>
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mx-auto max-w-5xl">
-              <img 
-                src={candlesImg} 
-                alt="Our eco-friendly soy wax candles with custom digital labels: Lavender, Sweet Vanilla, and Geranium" 
-                className="w-full h-auto object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* ABOUT SECTION */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -558,10 +532,11 @@ export default function App() {
             </div>
           </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               { title: "Canva Posters", icon: FileText, desc: "Science Project 2026 poster detailing the chemistry, physics, and biology of our candle.", link: "https://drive.google.com/drive/folders/1HQ5oq0tJj9Rx7p-U3o6SKdKreA4ZCAVV" },
-              { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" }
+              { title: "Project Video", icon: Video, desc: "Documentary of our making process and science.", link: "https://drive.google.com/file/d/14v1ZWi7euEEXdnltR-T2ehD-BHoBTHUZ/view?usp=drivesdk" },
+              { title: "Final Product", icon: ImageIcon, desc: "Our eco-friendly soy wax candles with custom digital labels.", link: candlesImg }
             ].map((item, idx) => (
               <FadeIn key={item.title} delay={idx * 0.1}>
                 {item.link ? (
@@ -570,7 +545,7 @@ export default function App() {
                     <h4 className="text-xl font-bold mb-3">{item.title}</h4>
                     <p className="text-cream/80 mb-4">{item.desc}</p>
                     <span className="inline-flex items-center gap-2 text-amber font-medium text-sm">
-                      {item.title === "Project Video" ? "Watch Video" : "View Posters"} <ArrowRight className="w-4 h-4" />
+                      {item.title === "Project Video" ? "Watch Video" : item.title === "Canva Posters" ? "View Posters" : "View Image"} <ArrowRight className="w-4 h-4" />
                     </span>
                   </a>
                 ) : (
