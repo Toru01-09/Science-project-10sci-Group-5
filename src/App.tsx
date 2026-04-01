@@ -171,7 +171,7 @@ export default function App() {
           <FadeIn delay={0.2}>
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mx-auto max-w-5xl">
               <img 
-                src="https://storage.googleapis.com/mks-client-files/1743519124_image.jpg" 
+                src="/candles.jpeg" 
                 alt="Our eco-friendly soy wax candles with custom digital labels: Lavender, Sweet Vanilla, and Geranium" 
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"
